@@ -9,7 +9,7 @@ public class ThreadStoped {
                             System.out.println("start ... ");
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
-                                Thread.interrupted();
+                                Thread.currentThread().interrupted();
                         }
                     }
                 }
