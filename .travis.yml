@@ -5,10 +5,6 @@ jdk:
 
 script: ant test
 
-
-before_install:
- - cd java
-
 # используем режим обычного пользователя для сборки проекта.
 sudo: false
 
