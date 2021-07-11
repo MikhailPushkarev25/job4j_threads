@@ -19,3 +19,7 @@ notifications:
       -mixa199525@yandex.ru
     on_success: never # default: change
     on_failure: always # default: always
+
+env:
+  global:
+      - CODECOV_TOKEN='b685e1c6-86bd-4c4b-b46e-a47890fdd1d2'
