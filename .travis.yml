@@ -3,6 +3,12 @@ language: java
 jdk:
   - openjdk14
 
+script: ant test
+
+
+before_install:
+ - cd java
+
 # используем режим обычного пользователя для сборки проекта.
 sudo: false
 
