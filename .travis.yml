@@ -1,17 +1,13 @@
 # используем язык java. Travis CI поддерживает другие языки тоже.
 language: java
-
-install: true
-
 jdk:
   - openjdk15
 
 services:
   - postgresql
 
-
 before_install:
-  - psql -c 'create database newSql;' -U postgres
+  - psql -c 'create database tracker;' -U postgres
 
 # используем режим обычного пользователя для сборки проекта.
 sudo: false
@@ -31,4 +27,4 @@ notifications:
 
 env:
   global:
-    - CODECOV_TOKEN="27271806-87f7-4215-97a2-b12c06765334"
+    - CODECOV_TOKEN="f0045e4a-f963-444e-a774-a85ee22d897f"
