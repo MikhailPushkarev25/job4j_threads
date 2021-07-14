@@ -3,28 +3,28 @@ package ru.job4j.net;
 import java.util.Objects;
 
 public class User {
-    private volatile int id;
-    private volatile int amount;
+    private int id;
+    private int amount;
 
     public User(int id, int amount) {
         this.id = id;
         this.amount = amount;
     }
 
-    public synchronized int getId() {
+    public int getId() {
         return id;
     }
 
-    public synchronized int getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public synchronized void setAmount(int amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
 
-    public static synchronized User of(User user) {
+    public static User of(User user) {
         return new User(user.id, user.amount);
     }
 

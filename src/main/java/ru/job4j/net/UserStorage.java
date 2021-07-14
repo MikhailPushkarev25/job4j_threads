@@ -25,19 +25,15 @@ public class UserStorage {
     }
 
     public synchronized boolean transfer(int fromId, int told, int amount) {
-        boolean rsl = true;
         User form = map.get(fromId);
         User to = map.get(told);
 
         if (form == null || to == null || form.getAmount() < amount) {
-            rsl = false;
+            return false;
         }
-
         form.setAmount(form.getAmount() - amount);
-
         to.setAmount(to.getAmount() + amount);
-
-        return rsl;
+        return true;
     }
 
     public static void main(String[] args) {
