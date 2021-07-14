@@ -17,21 +17,21 @@ public class SimpleBlockQueue<T> {
         this.limit = Integer.MAX_VALUE;
     }
 
-    public synchronized void offer(T value) throws InterruptedException {
+    public synchronized void offer(T value) {
         while (queue.size() == limit) {
-            wait();
-        }
-        queue.add(value);
-        notifyAll();
-    }
-
-    public synchronized T poll() {
-        while (queue.isEmpty()) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+        queue.add(value);
+        notifyAll();
+    }
+
+    public synchronized T poll() throws InterruptedException {
+        while (queue.isEmpty()) {
+                wait();
         }
         notifyAll();
         return queue.poll();
