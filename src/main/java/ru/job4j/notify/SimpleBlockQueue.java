@@ -13,8 +13,8 @@ public class SimpleBlockQueue<T> {
     @GuardedBy("this")
     private final Queue<T> queue = new LinkedList<>();
 
-    public SimpleBlockQueue(int limit) {
-        this.limit = limit;
+    public SimpleBlockQueue() {
+        this.limit = Integer.MAX_VALUE;
     }
 
     public synchronized void offer(T value) throws InterruptedException {
@@ -25,9 +25,13 @@ public class SimpleBlockQueue<T> {
         notifyAll();
     }
 
-    public synchronized T poll() throws InterruptedException {
+    public synchronized T poll() {
         while (queue.size() == 0) {
-           wait();
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         notifyAll();
         return queue.poll();

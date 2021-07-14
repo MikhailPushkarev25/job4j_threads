@@ -8,7 +8,7 @@ public class SimpleBlockQueueTest {
 
     @Test
     public void whenQueueBlockTest() throws InterruptedException {
-        SimpleBlockQueue<Integer> queue = new SimpleBlockQueue<>(3);
+        SimpleBlockQueue<Integer> queue = new SimpleBlockQueue<>();
         Thread producer = new Thread(
                 () -> {
                     try {
@@ -23,12 +23,8 @@ public class SimpleBlockQueueTest {
 
         Thread consumer = new Thread(
                 () -> {
-                    try {
                         queue.poll();
                         queue.poll();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                 }
         );
         producer.start();
