@@ -26,7 +26,7 @@ public class SimpleBlockQueue<T> {
     }
 
     public synchronized T poll() {
-        while (queue.size() == 0) {
+        while (queue.isEmpty()) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -35,5 +35,9 @@ public class SimpleBlockQueue<T> {
         }
         notifyAll();
         return queue.poll();
+    }
+
+    public synchronized boolean isEmpty() {
+        return queue.isEmpty();
     }
 }
