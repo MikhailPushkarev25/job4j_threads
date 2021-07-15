@@ -23,7 +23,6 @@ public class User {
         this.amount = amount;
     }
 
-
     public static User of(User user) {
         return new User(user.id, user.amount);
     }

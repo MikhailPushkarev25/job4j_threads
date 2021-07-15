@@ -5,7 +5,6 @@ import java.io.*;
 public class WriteFile {
     private final File file;
 
-
     public WriteFile(File file) {
         this.file = file;
     }
