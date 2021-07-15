@@ -42,6 +42,18 @@ public class CacheTest {
         assertThat(cache.getKey(model1.getId()), is(model1));
         cache.update(model2);
         assertThat(cache.getKey(model2.getId()).getName(), is(model2.getName()));
+    }
+
+    @Test (expected = OptimisticException.class)
+    public void whenErrorTest() {
+        Cache cache = new Cache();
+        Base model1 = new Base(1, 0);
+        Base model2 = new Base(1, 5);
+        model2.setName("Users");
+        cache.add(model1);
+        assertThat(cache.getKey(model1.getId()), is(model1));
+        cache.update(model2);
+
 
     }
 }
