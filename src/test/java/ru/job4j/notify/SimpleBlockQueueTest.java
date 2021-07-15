@@ -65,6 +65,7 @@ public class SimpleBlockQueueTest {
                     }
                 }
         );
+
         consumer.start();
         producer.join();
         consumer.interrupt();
