@@ -20,7 +20,7 @@ public class IndexSearchParallel extends RecursiveTask<Integer> {
     @Override
     protected Integer compute() {
         if ((form - to) < 10) {
-            for (int i = 0; i < array.length; i++) {
+            for (int i = form; i < to; i++) {
                 if (array[i].equals(element)) {
                     return i;
                 }
