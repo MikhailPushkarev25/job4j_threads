@@ -19,10 +19,13 @@ public class IndexSearchParallel extends RecursiveTask<Integer> {
 
     @Override
     protected Integer compute() {
+        int rsl = -1;
         if ((form - to) < 10) {
             for (int i = form; i <= to; i++) {
                 if (array[i].equals(element)) {
                     return i;
+                } else {
+                    return rsl;
                 }
             }
         }

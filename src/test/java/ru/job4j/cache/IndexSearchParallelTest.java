@@ -25,4 +25,13 @@ public class IndexSearchParallelTest {
 
         assertThat(IndexSearchParallel.sort(array, 6), is(12));
     }
+
+    @Test
+    public void whenExpectedSortAndError() {
+        Integer[] array =
+                {
+                        1, 5, 3, 6, 8, 4, 3, 11, 34, 12, 59, 10, 15
+                };
+        assertThat(IndexSearchParallel.sort(array, 100), is(-1));
+    }
 }
