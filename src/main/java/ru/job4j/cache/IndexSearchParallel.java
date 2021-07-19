@@ -24,10 +24,9 @@ public class IndexSearchParallel extends RecursiveTask<Integer> {
             for (int i = form; i <= to; i++) {
                 if (array[i].equals(element)) {
                     return i;
-                } else {
-                    return rsl;
                 }
             }
+            return -1;
         }
         int mid = (form + to) / 2;
         IndexSearchParallel leftSort =
